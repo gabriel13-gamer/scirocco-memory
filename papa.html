@@ -1,5 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papá 🤍</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+<h1 class="title">Papá 🤍</h1>
+
+<p id="texto" class="text-box"></p>
+
+<div class="card">
+
+<div id="foto"></div>
+
+<div class="nav-buttons">
+  <button onclick="anterior()">⬅️</button>
+  <button onclick="proxima()">➡️</button>
+</div>
+
+</div>
+
+</main>
+
 <script>
 let atual = 0;
+
+const frases = [
+  "🤍 Olá! Aqui ficam algumas palavras minhas para ti.",
+  "Mesmo chegando mais tarde na minha vida...",
+  "Obrigado por me tratares com carinho...",
+  "Os nossos momentos foram especiais...",
+  "Passeios contigo eram importantes...",
+  "Obrigado por tudo o que vivemos...",
+  "Levo contigo todas as memórias..."
+];
 
 const imagens = [
   "images/papa1.jpg",
@@ -20,7 +61,6 @@ function mostrar() {
 
   document.getElementById("foto").innerHTML = foto;
 
-  // botão surpresa só no fim
   if (atual === frases.length - 1) {
     if (!document.getElementById("btnSurpresa")) {
       const btn = document.createElement("button");
@@ -48,7 +88,6 @@ function anterior() {
   }
 }
 
-// SURPRESA (ALEATÓRIA)
 function surpresa() {
   const randomImg = imagens[Math.floor(Math.random() * imagens.length)];
 
@@ -72,3 +111,5 @@ function surpresa() {
 mostrar();
 </script>
 
+</body>
+</html>
