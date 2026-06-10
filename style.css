@@ -107,12 +107,8 @@ button:hover {
 }
 
 /* ========================= */
-/*        DIANA PAGE        */
+/*        DIANA & PAPA      */
 /* ========================= */
-
-.diana-page {
-  min-height: 100vh;
-}
 
 .card {
   max-width: 900px;
@@ -122,6 +118,8 @@ button:hover {
   border-radius: 25px;
   backdrop-filter: blur(8px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+
+  animation: fadeInUp 0.8s ease;
 }
 
 .text-box {
@@ -130,7 +128,7 @@ button:hover {
   line-height: 1.8;
 }
 
-/* IMAGEM GRANDE CORRIGIDA (ESTE ERA O PROBLEMA) */
+/* imagens grandes */
 #foto img {
   width: 100%;
   max-width: 650px;
@@ -142,12 +140,32 @@ button:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* botões da Diana */
+/* botões navegação */
 .nav-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-top: 15px;
+}
+
+/* ========================= */
+/*        BOTÃO SURPRESA    */
+/* ========================= */
+
+.surpresa-btn {
+  margin-top: 15px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.surpresa-btn:hover {
+  transform: scale(1.05);
+  background: white;
 }
 
 /* ========================= */
@@ -184,6 +202,21 @@ button:hover {
 @keyframes fall {
   0% { transform: translateY(-10vh); opacity: 1; }
   100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* ========================= */
+/*      ANIMAÇÃO ENTRADA    */
+/* ========================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========================= */
