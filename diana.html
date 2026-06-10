@@ -14,47 +14,38 @@
 
 <h1 class="title">Diana 🤍</h1>
 
-<p id="texto" class="text-box"></p>
+<p class="text-box">
+🤍 Aqui vão as frases por cada ano da minha vida canina contigo!
+</p>
 
 <div class="card">
 
-<div id="foto"></div>
+<p id="texto"></p>
+
+<div id="foto" class="gallery-container"></div>
 
 <div class="nav-buttons">
   <button onclick="anterior()">⬅️</button>
   <button onclick="proxima()">➡️</button>
 </div>
 
-<button onclick="surpresa()" class="surpresa-btn">
+<!-- BOTÃO SURPRESA (antigo estilo simples) -->
+<button onclick="surpresa()" class="surpresa-btn" id="btnSurpresa" style="display:none;">
 🤍 surpresa
 </button>
-  
+
+</div>
+
+<div class="album-button">
+  <button onclick="location.href='index.html'">🏠 Voltar</button>
 </div>
 
 </main>
 
+<script src="diana.js"></script>
+
 <script>
 let atual = 0;
-
-const frases = [
-  "🤍 Aqui vão as frases por cada ano da minha vida canina contigo!",
-  "Este foi o ano em que entrei na tua vida...",
-  "Descobri o mundo contigo...",
-  "Cresci contigo e aprendi a confiar em ti...",
-  "Ano cheio de brincadeiras e amor...",
-  "Passeios contigo eram sempre especiais...",
-  "Os anos passaram mas o amor ficou...",
-  "Obrigado por tudo o que vivemos juntos..."
-];
-
-const imagens = [
-  "images/diana1.jpg",
-  "images/diana2.jpg",
-  "images/diana3.jpg",
-  "images/diana4.jpg",
-  "images/diana5.jpg",
-  "images/diana_passeio.jpg"
-];
 
 function mostrar() {
   document.getElementById("texto").innerText = frases[atual];
@@ -67,16 +58,12 @@ function mostrar() {
 
   document.getElementById("foto").innerHTML = foto;
 
+  // mostrar botão só no fim
+  const btn = document.getElementById("btnSurpresa");
   if (atual === frases.length - 1) {
-    if (!document.getElementById("btnSurpresa")) {
-      const btn = document.createElement("button");
-      btn.innerText = "🤍 surpresa";
-      btn.className = "surpresa-btn";
-      btn.id = "btnSurpresa";
-      btn.onclick = surpresa;
-
-      document.querySelector(".card").appendChild(btn);
-    }
+    btn.style.display = "inline-block";
+  } else {
+    btn.style.display = "none";
   }
 }
 
@@ -94,23 +81,23 @@ function anterior() {
   }
 }
 
+// SURPRESA (simples antiga)
 function surpresa() {
-  const randomImg = imagens[Math.floor(Math.random() * imagens.length)];
+  alert("🤍 Uma memória especial");
 
-  document.querySelector(".card").innerHTML = `
-    <div class="surpresa-view">
+  const imgs = [
+    "images/diana1.jpg",
+    "images/diana2.jpg",
+    "images/diana3.jpg",
+    "images/diana4.jpg",
+    "images/diana5.jpg",
+    "images/diana_passeio.jpg"
+  ];
 
-      <h2>🤍 Uma memória especial</h2>
+  const randomImg = imgs[Math.floor(Math.random() * imgs.length)];
 
-      <p>${frases[frases.length - 1]}</p>
-
-      <img src="${randomImg}">
-
-      <button class="ver-album-btn" onclick="location.href='album.html'">
-        📸 Ver álbum
-      </button>
-
-    </div>
+  document.getElementById("foto").innerHTML = `
+    <img src="${randomImg}" style="width:100%;max-width:500px;border-radius:15px;">
   `;
 }
 
