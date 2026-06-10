@@ -1,50 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diana 🤍</title>
-
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<main class="container diana-page">
-
-<h1 class="title">Diana 🤍</h1>
-
-<p class="text-box">
-🤍 Aqui vão as frases por cada ano da minha vida canina contigo!
-</p>
-
-<div class="card">
-
-<p id="texto" class="text-box"></p>
-
-<div id="foto" class="gallery-container"></div>
-
-<div class="nav-buttons">
-  <button onclick="anterior()">⬅️</button>
-  <button onclick="proxima()">➡️</button>
-</div>
-
-<button onclick="surpresa()" class="surpresa-btn">
-🤍 surpresa
-</button>
-  
-</div>
-
-<div class="album-button">
-  <button onclick="location.href='index.html'">🏠 Voltar</button>
-</div>
-
-</main>
-
-<script src="diana.js"></script>
-
 <script>
 let atual = 0;
+
+const imagens = [
+  "images/diana1.jpg",
+  "images/diana2.jpg",
+  "images/diana3.jpg",
+  "images/diana4.jpg",
+  "images/diana5.jpg",
+  "images/diana_passeio.jpg"
+];
 
 function mostrar() {
   document.getElementById("texto").innerText = frases[atual];
@@ -52,10 +16,23 @@ function mostrar() {
   let foto = "";
 
   if (atual === 5) {
-    foto = `<img src="images/diana_passeio.jpg" alt="Diana">`;
+    foto = `<img src="images/diana_passeio.jpg">`;
   }
 
   document.getElementById("foto").innerHTML = foto;
+
+  // botão surpresa só no fim
+  if (atual === frases.length - 1) {
+    if (!document.getElementById("btnSurpresa")) {
+      const btn = document.createElement("button");
+      btn.innerText = "🤍 surpresa";
+      btn.className = "surpresa-btn";
+      btn.id = "btnSurpresa";
+      btn.onclick = surpresa;
+
+      document.querySelector(".card").appendChild(btn);
+    }
+  }
 }
 
 function proxima() {
@@ -72,8 +49,26 @@ function anterior() {
   }
 }
 
+// SURPRESA (ALEATÓRIA)
+function surpresa() {
+  const randomImg = imagens[Math.floor(Math.random() * imagens.length)];
+
+  document.querySelector(".card").innerHTML = `
+    <div class="surpresa-view">
+
+      <h2>🤍 Uma memória especial</h2>
+
+      <p>${frases[frases.length - 1]}</p>
+
+      <img src="${randomImg}">
+
+      <button class="ver-album-btn" onclick="location.href='album.html'">
+        📸 Ver álbum
+      </button>
+
+    </div>
+  `;
+}
+
 mostrar();
 </script>
-
-</body>
-</html>
