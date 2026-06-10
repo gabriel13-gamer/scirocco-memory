@@ -14,9 +14,11 @@
 
 <h1 class="title">Papá 🤍</h1>
 
-<p id="texto" class="text-box"></p>
+<p class="text-box"></p>
 
 <div class="card">
+
+<p id="texto"></p>
 
 <div id="foto"></div>
 
@@ -25,34 +27,23 @@
   <button onclick="proxima()">➡️</button>
 </div>
 
-<button onclick="surpresa()" class="surpresa-btn">
+<!-- BOTÃO SURPRESA ANTIGO -->
+<button onclick="surpresa()" class="surpresa-btn" id="btnSurpresa" style="display:none;">
 🤍 surpresa
 </button>
-  
+
+</div>
+
+<div class="album-button">
+  <button onclick="location.href='index.html'">🏠 Voltar</button>
 </div>
 
 </main>
 
+<script src="papa.js"></script>
+
 <script>
 let atual = 0;
-
-const frases = [
-  "🤍 Olá! Aqui ficam algumas palavras minhas para ti.",
-  "Mesmo chegando mais tarde na minha vida...",
-  "Obrigado por me tratares com carinho...",
-  "Os nossos momentos foram especiais...",
-  "Passeios contigo eram importantes...",
-  "Obrigado por tudo o que vivemos...",
-  "Levo contigo todas as memórias..."
-];
-
-const imagens = [
-  "images/papa1.jpg",
-  "images/papa2.jpg",
-  "images/papa3.jpg",
-  "images/papa4.jpg",
-  "images/papa_passeio.jpg"
-];
 
 function mostrar() {
   document.getElementById("texto").innerText = frases[atual];
@@ -65,16 +56,12 @@ function mostrar() {
 
   document.getElementById("foto").innerHTML = foto;
 
-  if (atual === frases.length - 1) {
-    if (!document.getElementById("btnSurpresa")) {
-      const btn = document.createElement("button");
-      btn.innerText = "🤍 surpresa";
-      btn.className = "surpresa-btn";
-      btn.id = "btnSurpresa";
-      btn.onclick = surpresa;
+  const btn = document.getElementById("btnSurpresa");
 
-      document.querySelector(".card").appendChild(btn);
-    }
+  if (atual === frases.length - 1) {
+    btn.style.display = "inline-block";
+  } else {
+    btn.style.display = "none";
   }
 }
 
@@ -92,23 +79,22 @@ function anterior() {
   }
 }
 
+// SURPRESA ANTIGA
 function surpresa() {
-  const randomImg = imagens[Math.floor(Math.random() * imagens.length)];
+  alert("🤍 Memória especial");
 
-  document.querySelector(".card").innerHTML = `
-    <div class="surpresa-view">
+  const imgs = [
+    "images/papa1.jpg",
+    "images/papa2.jpg",
+    "images/papa3.jpg",
+    "images/papa4.jpg",
+    "images/papa_passeio.jpg"
+  ];
 
-      <h2>🤍 Uma memória especial</h2>
+  const randomImg = imgs[Math.floor(Math.random() * imgs.length)];
 
-      <p>${frases[frases.length - 1]}</p>
-
-      <img src="${randomImg}">
-
-      <button class="ver-album-btn" onclick="location.href='album.html'">
-        📸 Ver álbum
-      </button>
-
-    </div>
+  document.getElementById("foto").innerHTML = `
+    <img src="${randomImg}" style="width:100%;max-width:500px;border-radius:15px;">
   `;
 }
 
