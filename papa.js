@@ -35,3 +35,7 @@ const frases = [
 "Obrigado por tudo, Papá. Talvez tenhamos começado a nossa amizade mais tarde do que eu gostaria, mas aproveitámos cada momento. Quando te lembrares de mim, lembra-te dos momentos felizes e sorri. 🤍🐾"
 
 ];
+
+function surpresa() {
+  alert("🤍 Obrigado por tudo. Vais ficar sempre na minha memória.");
+}
