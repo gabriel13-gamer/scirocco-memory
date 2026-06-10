@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbum - Sirocco Memory</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- TÍTULO -->
+    <h1 class="site-title">📸 Álbum de Memórias</h1>
+
+    <p class="footer-text">
+      Momentos que ficam para sempre 🤍
+    </p>
+
+    <!-- ÁLBUM -->
+    <div class="album-grid" id="album"></div>
+
+    <!-- BOTÃO VOLTAR -->
+    <div class="album-button">
+      <button onclick="location.href='index.html'">
+        ⬅ Voltar
+      </button>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT PARA GERAR 49 FOTOS -->
+  <script>
+    const album = document.getElementById("album");
+
+    for (let i = 1; i <= 49; i++) {
+      const img = document.createElement("img");
+      img.src = `images/foto${i}.jpg`;
+      img.alt = `Memória ${i}`;
+      album.appendChild(img);
+    }
+  </script>
+
+</body>
+</html>

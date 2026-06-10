@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Papá 🤍</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<h1>Papá 🤍</h1>
+
+<div class="card">
+
+<p id="texto"></p>
+
+<div id="foto"></div>
+
+<br>
+
+<button onclick="anterior()">
+⬅️
+</button>
+
+<button onclick="proxima()">
+➡️
+</button>
+
+<br><br>
+
+<button onclick="location.href='index.html'">
+🏠 Voltar
+</button>
+
+</div>
+
+<script src="papa.js"></script>
+
+<script>
+
+let atual = 0;
+
+function mostrar(){
+
+document.getElementById("texto")
+.innerText = frases[atual];
+
+let foto = "";
+
+if(atual === 4){
+
+foto =
+'<img src="images/papa_passeio.jpg" width="350">';
+
+}
+
+document.getElementById("foto")
+.innerHTML = foto;
+
+}
+
+function proxima(){
+
+if(atual < frases.length - 1){
+
+atual++;
+
+mostrar();
+
+}
+
+}
+
+function anterior(){
+
+if(atual > 0){
+
+atual--;
+
+mostrar();
+
+}
+
+}
+
+mostrar();
+
+</script>
+
+</body>
+</html>

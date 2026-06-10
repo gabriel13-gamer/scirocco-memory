@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Diana 🤍</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h1>Diana 🤍</h1>
+
+<div class="card">
+
+<p id="texto"></p>
+
+<div id="foto"></div>
+
+<button onclick="anterior()">
+⬅️
+</button>
+
+<button onclick="proxima()">
+➡️
+</button>
+
+</div>
+
+<script src="diana.js"></script>
+
+<script>
+
+let atual = 0;
+
+function mostrar(){
+
+document.getElementById("texto")
+.innerText = frases[atual];
+
+let foto = "";
+
+if(atual===5){
+
+foto =
+'<img src="images/diana_passeio.jpg" width="300">';
+
+}
+
+document.getElementById("foto")
+.innerHTML = foto;
+
+}
+
+function proxima(){
+
+if(atual < frases.length-1){
+
+atual++;
+
+mostrar();
+
+}
+
+}
+
+function anterior(){
+
+if(atual > 0){
+
+atual--;
+
+mostrar();
+
+}
+
+}
+
+mostrar();
+
+</script>
+
+</body>
+</html>

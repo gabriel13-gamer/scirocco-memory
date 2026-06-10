@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sirocco Memory</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ❤️ CORAÇÕES A CAIR -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "🤍";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+  <main class="container">
+
+    <!-- IMAGEM -->
+    <div class="image-container">
+      <img src="images/dog.jpg" alt="Sirocco">
+    </div>
+
+    <!-- TÍTULO -->
+    <h1 class="site-title">Sirocco Memory</h1>
+
+    <!-- BOTÕES -->
+    <div class="buttons">
+
+      <button onclick="location.href='diana.html'">♡ Diana</button>
+      <button onclick="location.href='papa.html'">♡ Papá</button>
+
+    </div>
+
+    <!-- ÁLBUM -->
+    <div class="album-button">
+      <button onclick="location.href='album.html'">
+        📸 Álbum de Memórias
+      </button>
+    </div>
+
+    <!-- TEXTO FINAL -->
+    <p class="footer-text">
+      Para sempre no meu coração 🤍
+    </p>
+
+  </main>
+
+</body>
+</html>
