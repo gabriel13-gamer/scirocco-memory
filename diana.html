@@ -1,5 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana 🤍</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+<h1 class="title">Diana 🤍</h1>
+
+<p id="texto" class="text-box"></p>
+
+<div class="card">
+
+<div id="foto"></div>
+
+<div class="nav-buttons">
+  <button onclick="anterior()">⬅️</button>
+  <button onclick="proxima()">➡️</button>
+</div>
+
+</div>
+
+</main>
+
 <script>
 let atual = 0;
+
+const frases = [
+  "🤍 Aqui vão as frases por cada ano da minha vida canina contigo!",
+  "Este foi o ano em que entrei na tua vida...",
+  "Descobri o mundo contigo...",
+  "Cresci contigo e aprendi a confiar em ti...",
+  "Ano cheio de brincadeiras e amor...",
+  "Passeios contigo eram sempre especiais...",
+  "Os anos passaram mas o amor ficou...",
+  "Obrigado por tudo o que vivemos juntos..."
+];
 
 const imagens = [
   "images/diana1.jpg",
@@ -21,7 +63,6 @@ function mostrar() {
 
   document.getElementById("foto").innerHTML = foto;
 
-  // botão surpresa só no fim
   if (atual === frases.length - 1) {
     if (!document.getElementById("btnSurpresa")) {
       const btn = document.createElement("button");
@@ -49,7 +90,6 @@ function anterior() {
   }
 }
 
-// SURPRESA (ALEATÓRIA)
 function surpresa() {
   const randomImg = imagens[Math.floor(Math.random() * imagens.length)];
 
@@ -72,3 +112,6 @@ function surpresa() {
 
 mostrar();
 </script>
+
+</body>
+</html>
