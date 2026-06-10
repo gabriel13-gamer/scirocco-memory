@@ -17,3 +17,7 @@ const frases = [
   "Já era um velhote, mas continuava a sentir-me seguro e amado. Obrigado por cuidares tão bem de mim.",
   "Chegou o momento de descansar. Obrigado por todos os passeios, aventuras, cuidados, brincadeiras e amor. A minha vida foi feliz porque tu fizeste parte dela. Um dia voltaremos a encontrar-nos. 🤍🐾"
 ];
+
+function surpresa() {
+  alert("🤍 Tu és a minha melhor memória.");
+}
