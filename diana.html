@@ -10,7 +10,7 @@
 
 <body>
 
-<div class="container">
+<main class="container diana-page">
 
 <h1 class="title">Diana 🤍</h1>
 
@@ -24,72 +24,51 @@
 
 <div id="foto" class="gallery-container"></div>
 
-<button onclick="anterior()">
-⬅️
-</button>
-
-<button onclick="proxima()">
-➡️
-</button>
+<div class="nav-buttons">
+  <button onclick="anterior()">⬅️</button>
+  <button onclick="proxima()">➡️</button>
+</div>
 
 </div>
 
 <div class="album-button">
-<button onclick="location.href='index.html'">
-🏠 Voltar
-</button>
+  <button onclick="location.href='index.html'">🏠 Voltar</button>
 </div>
 
-</div>
+</main>
 
 <script src="diana.js"></script>
 
 <script>
-
 let atual = 0;
 
-function mostrar(){
+function mostrar() {
+  document.getElementById("texto").innerText = frases[atual];
 
-document.getElementById("texto").innerText = frases[atual];
+  let foto = "";
 
-let foto = "";
+  if (atual === 5) {
+    foto = `<img src="images/diana_passeio.jpg" alt="Diana">`;
+  }
 
-if(atual === 5){
-
-foto = '<img src="images/diana_passeio.jpg" alt="Passeio da Diana">';
-
+  document.getElementById("foto").innerHTML = foto;
 }
 
-document.getElementById("foto").innerHTML = foto;
-
+function proxima() {
+  if (atual < frases.length - 1) {
+    atual++;
+    mostrar();
+  }
 }
 
-function proxima(){
-
-if(atual < frases.length - 1){
-
-atual++;
-
-mostrar();
-
-}
-
-}
-
-function anterior(){
-
-if(atual > 0){
-
-atual--;
-
-mostrar();
-
-}
-
+function anterior() {
+  if (atual > 0) {
+    atual--;
+    mostrar();
+  }
 }
 
 mostrar();
-
 </script>
 
 </body>
